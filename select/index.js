@@ -67,6 +67,7 @@ const fejlec = [ //Fejlec tomb deklaralasa
  */
 const jsSectionDiv = document.createElement("div"); //divet keszitek
 jsSectionDiv.id = "jssection"; //idt adok a divnek
+jsSectionDiv.classList.add("hide") //hide osztalyt hozzaadom, hogy ne legyen lathato
 document.body.appendChild(jsSectionDiv) //bodyhoz csatolom
 
 /**
@@ -256,7 +257,7 @@ function addRow(newRow, tableBody){ //fugvenyt definialok 2 parameterreé
 
 const addItemButton = document.createElement("button") //Gomb letrehozasa
 addItemButton.innerText = "Szimpla egy sor hozzáadása" //Gomb szovegenek allitasa
-document.body.appendChild(addItemButton) //Hozzaadom a bodyhoz a gombot
+jsSectionDiv.appendChild(addItemButton) //Hozzaadom a bodyhoz a gombot
 
 addItemButton.addEventListener("click", function(){ //Keszitek 1 esemenykezelot click esemenyre
     console.log("Clickeles megtortent, szimpla sor hozzadva") //Uzenet a consolera hogy tenyleg megtortent e a clickeles
@@ -280,7 +281,7 @@ addItemButton.addEventListener("click", function(){ //Keszitek 1 esemenykezelot 
 
 const addDoubleItemButton = document.createElement("button") //Gomb letrehozasa
 addDoubleItemButton.innerText = "Duplas sor hozzáadása" //Gomb szovegenek allitasa
-document.body.appendChild(addDoubleItemButton) //Hozzaadom a bodyhoz a gombot
+jsSectionDiv.appendChild(addDoubleItemButton) //Hozzaadom a bodyhoz a gombot
 
 addDoubleItemButton.addEventListener("click", function(){ //Keszitek 1 esemenykezelot click esemenyre
     console.log("Clickeles megtortent, duplas sor hozzadva") //Uzenet a consolera hogy tenyleg megtortent e a clickeles
@@ -349,4 +350,40 @@ doubleHtmlButton.addEventListener("click", function(){ //esemenykezelo a dupla g
     const tableBody = document.getElementById("tablebody") //elkerem a tablazat torzset
 
     addRow(newRow, tableBody) //meghivom a fuggvenyt es hozzadja a tablazatot
+})
+
+/**
+ * @type {HTMLSelectElement} a valaszto amit a htmlrol kerek le
+ */
+const select = document.getElementById("tableselector") //lekerem a selectet (ami a tableselector idval van ellatva)
+
+select.addEventListener("change", function(e){ //esemenykezelot keszitek changere
+
+    /**
+     * @type {HTMLSelectElement} az esemeny targetjeeben levo select
+     */
+    const target = e.target //valtozoba tarolom a targetjet az esemenynek
+
+
+    /**
+     * @type {HTMLDivElement} htmlsectiont tartalmazo div
+     */
+    const htmlSection = document.getElementById("htmlsection") //elkerem a htmlsectiont
+
+    /**
+     * @type {HTMLDivElement} jssectiont tartalmazo div
+     */
+    const jsSection = document.getElementById("jssection") //elkerem a jssectiont
+
+    
+    if(target.value == "html"){ //vizsgalom hogy a target erteke "html" e
+        jsSection.classList.add("hide") //ha igen hozzaadom a hide css tulajdonsagot, ettol eltunik a jstablazat mivel a htmlt akarjuk latni
+        htmlSection.classList.remove("hide")// es leszedjuk a hideot a htmlsectionrol, hogy lassuk
+    }
+    else if(target.value == "js"){ //vizsgalom hogy a target erteke "js" e
+        jsSection.classList.remove("hide") //ja igen leszedem a hide css tulajdonsagot, hogy lathato legyen a jssection
+        htmlSection.classList.add("hide")// es eltuntetem a htmlsectiont
+    }
+
+
 })
