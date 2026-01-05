@@ -74,7 +74,7 @@ document.body.appendChild(jsSectionDiv) //bodyhoz csatolom
  * @type {HTMLTableElement} a tablazat
  */
 const table = document.createElement("table") //letrehozom a tablazatot
-jsSectionDiv.body.appendChild(table) //hozzafuzom a bodyhoz
+jsSectionDiv.appendChild(table) //hozzafuzom a bodyhoz
 
 /**
  * @type {HTMLTableSectionElement} a tablazat fejlece
@@ -338,4 +338,36 @@ doubleHtmlButton.addEventListener("click", function(){ //esemenykezelo a dupla g
     const tableBody = document.getElementById("tablebody") //elkerem a tablazat torzset
 
     addRow(newRow, tableBody) //meghivom a fuggvenyt es hozzadja a tablazatot
+})
+
+
+/**
+ * @type {HTMLInputElement} chekcbox erteket tartalmazza
+ */
+const checkbox = document.getElementById("tableselector") //lekererrem a checkbox erteket
+
+checkbox.addEventListener("change", function(e){ //esemenykezelot keszitek a checkbox change esemenyere
+    /**
+     * @type {HTMLDivElement} jssectiont tartalmazza
+     */
+    const jsSection = document.getElementById("jssection")//lekerem a jssectiont
+
+    /**
+     * @type {HTMLDivElement} htmlsectiont tartalmazza
+     */
+    const htmlSection = document.getElementById("htmlsection") //lekerem a htmlsecitont
+
+    /**
+     * @type {HTMLInputElement} targetje az esemenynek
+     */
+    const target = e.target //valtozoba tarolom a targetjet az esemenynek
+
+    if(target.checked){ //vizsgalom, hogy be van e pipalva a checkbox
+        jsSection.classList.remove("hide"); // ha igaz, akkor eltavolitom a hide css osztalyt a jssectionhoz
+        htmlSection.classList.add("hide"); // aztan gozzadom a hide css osztalyt a htmlsectionhoz
+    }
+    else{ //maskulonben
+        jsSection.classList.add("hide") //jssectionre rakom a hideot
+        htmlSection.classList.remove("hide") //es htmlsectionrol leveszem es latszik
+    }
 })
