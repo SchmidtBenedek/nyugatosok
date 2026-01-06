@@ -110,17 +110,44 @@ checkbox.addEventListener("change", function(e){ //esemenykezelot keszitek a che
     
 })
 
+
+
 /**
  * @type {HTMLFormElement} a form a javascript tablazatnak
  */
 const jsForm = document.createElement("form")//letrehozom a formot
 jsForm.id = "jsform" //jsform id-t beallitom
 jsSectionDiv.appendChild(jsForm) //a jssectiondivhez hozzaadom a formot
- 
-createForm("Szerző", "elso", "szerzo", jsForm) //meghivom a fuggvenyt, elkeszul a label, inputot tartalmazo div
-createForm("Mű"," masodik", "mu", jsForm) //meghivom a fuggvenyt, elkeszul a label, inputot tartalmazo div
-createForm("Fogalom1"," harmadik", "fogalom1", jsForm) //meghivom a fuggvenyt, elkeszul a label, inputot tartalmazo div
-createForm("Fogalom2", "negyedik", "fogalom2",  jsForm) //meghivom a fuggvenyt, elkeszul a label, inputot tartalmazo div
+
+/**
+ * @type {{label: string, id: string, name: string}[]} a formfieldek felepiteset tartalmazo tomb
+ */
+const formFields = [ //definialok egy tombot
+    { // elso objektum
+        label: 'Szerző', //label szovege
+        id: 'elso', //input id
+        name: 'szerzo' //input name
+    },
+    { // masodik objektum
+        label: 'Mű', //label szovege
+        id: 'masodik', // input id
+        name: 'mu' //input name
+    },
+    { // harmadik objektum
+        label: 'Fogalom1', //label szovege
+        id: 'harmadik', //input id
+        name: 'fogalom1' //input name
+    },
+    { // negyedik objektum
+        label: 'Fogalom2', //label szovege
+        id: 'negyedik', //input id
+        name: 'fogalom2' // nput name
+    }
+]
+
+for(const field of formFields){ //vegigmegyek a tombon
+    createForm(field.label, field.id, field.name, jsForm) //meghivom a fuggvenyt es elkesziti az aktualis divet a benne levo labellel es inputtal
+}
 
 /**
  * @type {HTMLButtonElement} gomb az urlap elkuldesehez
