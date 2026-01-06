@@ -334,3 +334,46 @@ doubleHtmlButton.addEventListener("click", function(){ //esemenykezelo a dupla g
     addRow(newRow, tableBody) //meghivom a fuggvenyt es hozzadja a tablazatot
 })
 
+/**
+ * @type {HTMLInputElement} chekcbox erteket tartalmazza
+ */
+const checkbox = document.getElementById("tableselector") //lekererrem a checkbox erteket
+updateCheckBox(checkbox) //alapbol is  meghivom a fuggvenyt, az alap checkbox ertekevel 
+
+checkbox.addEventListener("change", function(e){ //esemenykezelot keszitek a checkbox change esemenyere
+    /**
+     * @type {HTMLInputElement} targetje az esemenynek
+     */
+    const target = e.target //valtozoba tarolom a targetjet az esemenynek
+
+    updateCheckBox(target) //Meghivom a fuggvenyt
+    
+})
+
+
+/**
+ * Inputtol fuggoen jeleniti meg es rejti el a tablazatokat
+ * 
+ * @param {HTMLInputElement} input  checkbox amit vizsgalni kell
+ * @returns {void}
+ */
+function updateCheckBox(input){ //fugvenyt definialok a checkbox kezelesere
+    /**
+     * @type {HTMLDivElement} jssectiont tartalmazza
+     */
+    const jsSection = document.getElementById("jssection")//lekerem a jssectiont
+
+    /**
+     * @type {HTMLDivElement} htmlsectiont tartalmazza
+     */
+    const htmlSection = document.getElementById("htmlsection") //lekerem a htmlsecitont
+
+    if(input.checked){ //vizsgalom, hogy be van e pipalva a checkbox
+        jsSection.classList.remove("hide"); // ha igaz, akkor eltavolitom a hide css osztalyt a jssectionhoz
+        htmlSection.classList.add("hide"); // aztan gozzadom a hide css osztalyt a htmlsectionhoz
+    }
+    else{ //maskulonben
+        jsSection.classList.add("hide") //jssectionre rakom a hideot
+        htmlSection.classList.remove("hide") //es htmlsectionrol leveszem es latszik
+    }
+}
