@@ -205,3 +205,57 @@ function createForm(labelText, id, name, form){ //fuggvenyt definialok 4 paramet
     error.classList.add("error") //hozzaadom az error osztalyt
     formDiv.appendChild(error) //hozzacsatolom az error divet a mar letrehozott
 }
+
+/**
+ * Fuggveny ami egy formot hoz letre
+ * 
+ * @param {HTMLDivElement} section hogy hova hozom letre a formot
+ * @returns {HTMLFormElement}
+ */
+function generateForm(section){ //definialok 1 fuggvenyt 1 parameterrel
+        /**
+     * @type {HTMLFormElement} a form a javascript tablazatnak
+     */
+    const jsForm = document.createElement("form")//letrehozom a formot
+    jsForm.id = "jsform" //jsform id-t beallitom
+    section.appendChild(jsForm) //a jssectiondivhez hozzaadom a formot
+
+    /**
+     * @type {{label: string, id: string, name: string}[]} a formfieldek felepiteset tartalmazo tomb
+     */
+    const formFields = [ //definialok egy tombot
+        { // elso objektum
+            label: 'Szerző', //label szovege
+            id: 'elso', //input id
+            name: 'szerzo' //input name
+        },
+        { // masodik objektum
+            label: 'Mű', //label szovege
+            id: 'masodik', // input id
+            name: 'mu' //input name
+        },
+        { // harmadik objektum
+            label: 'Fogalom1', //label szovege
+            id: 'harmadik', //input id
+            name: 'fogalom1' //input name
+        },
+        { // negyedik objektum
+            label: 'Fogalom2', //label szovege
+            id: 'negyedik', //input id
+            name: 'fogalom2' // nput name
+        }
+    ]
+
+    for(const field of formFields){ //vegigmegyek a tombon
+        createForm(field.label, field.id, field.name, jsForm) //meghivom a fuggvenyt es elkesziti az aktualis divet a benne levo labellel es inputtal
+    }
+
+    /**
+     * @type {HTMLButtonElement} gomb az urlap elkuldesehez
+     */
+    const formGomb = document.createElement("button") //gombot hozok letre
+    formGomb.innerText = "Hozzáadás" //Szoveget allitok a gombnak
+    jsForm.appendChild(formGomb) //formhoz hozzaadom
+
+    return jsForm //visszaterek az elkeszult jsFormmal
+}
