@@ -2,7 +2,6 @@
  * @typedef {{writer: string, work: string, concept1: string, work2?: string, concept2?: string}} Literature // Definialok 1 tipust
  */
 
-
 /**
  * @type {Literature[]} Az adattomb tipusa
  */
@@ -62,11 +61,20 @@ const fejlec = [ //Fejlec tomb deklaralasa
     }
 ]
 
+
+/**
+ * @type {HTMLDivElement} js szekcio divje
+ */
+const jsSectionDiv = document.createElement("div"); //divet keszitek
+jsSectionDiv.id = "jssection"; //idt adok a divnek
+
+document.body.appendChild(jsSectionDiv) //bodyhoz csatolom
+
 /**
  * @type {HTMLTableElement} a tablazat
  */
 const table = document.createElement("table") //letrehozom a tablazatot
-document.body.appendChild(table) //hozzafuzom a bodyhoz
+jsSectionDiv.appendChild(table) //hozzafuzom a bodyhoz
 
 /**
  * @type {HTMLTableSectionElement} a tablazat fejlece
@@ -154,9 +162,6 @@ function renderTable(arr, tbody){ //Definialok 1 fuggvenyt aminek a bemeneti par
     }
 }
 
-
-
-
 /**
  * Uj cellat hozzafuz egy sorhoz es returnol 1 cellat
  * 
@@ -174,7 +179,6 @@ function createCell(cellContent, parent){ //fugvenyt keszitek uj cella letrehoza
 
     return cell //visszaterek a kesz cellaval
 }
-
 
 /**
  * Egy uj sort ad hozza a tablazathoz
@@ -229,15 +233,13 @@ function addRow(newRow, tableBody){ //fugvenyt definialok 2 parameterreé
 
 }
 
-
-
 /**
  * @type {HTMLButtonElement} gomb ami hozzafuz 1 sort az adattombhoz es consolera iratja a tablazatot
  */
 
 const addItemButton = document.createElement("button") //Gomb letrehozasa
 addItemButton.innerText = "Szimpla egy sor hozzáadása" //Gomb szovegenek allitasa
-document.body.appendChild(addItemButton) //Hozzaadom a bodyhoz a gombot
+jsSectionDiv.appendChild(addItemButton) //Hozzaadom a bodyhoz a gombot
 
 addItemButton.addEventListener("click", function(){ //Keszitek 1 esemenykezelot click esemenyre
     console.log("Clickeles megtortent, szimpla sor hozzadva") //Uzenet a consolera hogy tenyleg megtortent e a clickeles
@@ -261,7 +263,7 @@ addItemButton.addEventListener("click", function(){ //Keszitek 1 esemenykezelot 
 
 const addDoubleItemButton = document.createElement("button") //Gomb letrehozasa
 addDoubleItemButton.innerText = "Duplas sor hozzáadása" //Gomb szovegenek allitasa
-document.body.appendChild(addDoubleItemButton) //Hozzaadom a bodyhoz a gombot
+jsSectionDiv.appendChild(addDoubleItemButton) //Hozzaadom a bodyhoz a gombot
 
 addDoubleItemButton.addEventListener("click", function(){ //Keszitek 1 esemenykezelot click esemenyre
     console.log("Clickeles megtortent, duplas sor hozzadva") //Uzenet a consolera hogy tenyleg megtortent e a clickeles
@@ -331,3 +333,4 @@ doubleHtmlButton.addEventListener("click", function(){ //esemenykezelo a dupla g
 
     addRow(newRow, tableBody) //meghivom a fuggvenyt es hozzadja a tablazatot
 })
+

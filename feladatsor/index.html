@@ -17,44 +17,47 @@
     </style>
 </head>
 <body>
-    <table>
-        <thead>
-            <tr>
-                <th>Szerző</th>
-                <th>Mű</th>
-                <th>Fogalmak</th>
-            </tr>
-        </thead>
-        <tbody id="tablebody">
-            <tr>
-                <td>Ady Endre</td>
-                <td>Őrizem a szemed</td>
-                <td>Csinszka-vers</td>
-            </tr>
-            <tr>
-                <td>Babits Mihály</td>
-                <td>In Horatium</td>
-                <td>óda</td>
-            </tr>
-            <tr>
-                <td rowspan="2">Kosztolányi Dezső</td>
-                <td>A szegény kisgyermek panaszai</td>
-                <td>versciklus</td>
-            </tr>
-			<tr>
-                <td>Édes Anna</td>
-                <td>regény</td>
-            </tr>
-            <tr>
-                <td>Móricz Zsigmond</td>
-                <td>Tragédia</td>
-                <td>novella</td>
-            </tr>  
-        </tbody>
-    </table>
-    
-    <button id="simplebutton">Szimpla sor HTMLTABLAZATHOZ</button>
-    <button id="doublebutton">Dupla peldas sor HTMLTABLAZATHOZ</button>
+    <input type="checkbox" id="tableselector">
+    <label for="tableselector">Klikkants ha Js tablazatot szeretned latni</label>
+    <div id="htmlsection">
+        <table>
+            <thead>
+                <tr>
+                    <th>Szerző</th>
+                    <th>Mű</th>
+                    <th>Fogalmak</th>
+                </tr>
+            </thead>
+            <tbody id="tablebody">
+                <tr>
+                    <td>Ady Endre</td>
+                    <td>Őrizem a szemed</td>
+                    <td>Csinszka-vers</td>
+                </tr>
+                <tr>
+                    <td>Babits Mihály</td>
+                    <td>In Horatium</td>
+                    <td>óda</td>
+                </tr>
+                <tr>
+                    <td rowspan="2">Kosztolányi Dezső</td>
+                    <td>A szegény kisgyermek panaszai</td>
+                    <td>versciklus</td>
+                </tr>
+                <tr>
+                    <td>Édes Anna</td>
+                    <td>regény</td>
+                </tr>
+                <tr>
+                    <td>Móricz Zsigmond</td>
+                    <td>Tragédia</td>
+                    <td>novella</td>
+                </tr>  
+            </tbody>
+        </table>
+        <button id="simplebutton">Szimpla sor HTMLTABLAZATHOZ</button>
+        <button id="doublebutton">Dupla peldas sor HTMLTABLAZATHOZ</button>
+    </div>
     <script src="index.js"></script>
 </body>
 </html>
