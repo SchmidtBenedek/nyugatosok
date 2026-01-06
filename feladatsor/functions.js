@@ -163,3 +163,45 @@ function updateCheckBox(input){ //fugvenyt definialok a checkbox kezelesere
         htmlSection.classList.remove("hide") //es htmlsectionrol leveszem es latszik
     }
 }
+
+/**
+ * Labelt es input mezot keszit, majd egy divbe teszi oket, a divet pedig a formhoz csatolja
+ * 
+ * @param {string} labelText label szovege van benne
+ * @param {string} id az input idje 
+ * @param {string} name input neve
+ * @param {HTMLFormElement} form az urlap
+ * @returns {void} 
+ */
+function createForm(labelText, id, name, form){ //fuggvenyt definialok 4 parameterrel
+    
+    /**
+     * @type {HTMLDivElement} a div amibe tarolva lesz az input es a label
+     */
+    const formDiv = document.createElement("div") //letrehozok egy divet
+    form.appendChild(formDiv) //hgozzacsatolok a formhoz a divet
+
+    /**
+     * @type {HTMLLabelElement} a label az input melle
+     */
+    const label = document.createElement("label") //letrehozok egy labelt
+    label.htmlFor = id //beallitom hogy milyen id kell hozzza
+    label.innerText = labelText //beallitom a label szoveget
+    formDiv.appendChild(label) //a divhez hozzacsatolom
+    formDiv.appendChild(document.createElement("br")) //sortores hogy legyen szebb
+
+     /**
+     * @type {HTMLInputElement} letrehozott input
+     */
+    const input = document.createElement("input") //inputot keszitek
+    input.id = id //idt allitok
+    input.name = name //nevet allitok az inputnak
+    formDiv.appendChild(input) //divhez csatolon az inputot
+
+    /**
+     * @type {HTMLDivElement} letrehozott div az errornak
+     */
+    const error = document.createElement("div") //letrehozok egy divet az errornak
+    error.classList.add("error") //hozzaadom az error osztalyt
+    formDiv.appendChild(error) //hozzacsatolom az error divet a mar letrehozott
+}

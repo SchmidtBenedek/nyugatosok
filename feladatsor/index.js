@@ -117,129 +117,10 @@ const jsForm = document.createElement("form")//letrehozom a formot
 jsForm.id = "jsform" //jsform id-t beallitom
 jsSectionDiv.appendChild(jsForm) //a jssectiondivhez hozzaadom a formot
  
-/**
- * @type {HTMLDivElement} szerzonek majd a labele meg inputja lesz benne meg az error
- */
-const szerzoDiv = document.createElement("div") //divet letrehozok
-jsForm.appendChild(szerzoDiv) //jsformhoz adom
- 
-/**
- * @type {HTMLLabelElement} szerzo labelje
- */
-const szerzoLabel = document.createElement("label") //labelt hozok letre
-szerzoLabel.htmlFor = "elso" //for tulajdonsagot allitok
-szerzoLabel.innerText = "Szerző" //szoveget allitok a labelnek
-szerzoDiv.appendChild(szerzoLabel) //szerzodivhez csatolom a labelt
-szerzoDiv.appendChild(document.createElement("br")) //sort torok
-
-/**
- * @type {HTMLInputElement} szerzo input mezo
- */
-const szerzoInput = document.createElement("input") //input mezot letrehozom
-szerzoInput.id = "elso" //idt allitok
-szerzoInput.name = "szerzo" //nevet beallitom
-szerzoDiv.appendChild(szerzoInput) //hozzaadom a szerzodivhez
-
-/**
- * @type {HTMLDivElement} letrehozott div a szerzo input error uzenetenek
- */
-const szerzoError = document.createElement("div") // letrehozom az error divet
-szerzoError.classList.add("error") // hozzaadom az error osztalyt
-szerzoDiv.appendChild(szerzoError) // hozzacsatolom az error divet a szerzo divhez
-szerzoDiv.appendChild(document.createElement("br")) //sort torok
-
-/**
- * @type {HTMLDivElement} mu divje
- */
-const muDiv = document.createElement("div") //mudivet elkeszitem
-jsForm.appendChild(muDiv) //jsformhoz hozzacsatolom
-
-/**
- * @type {HTMLLabelElement} mu labelje
- */
-const muLabel = document.createElement("label") //labelt hozok letre
-muLabel.htmlFor = "masodik" //for tulajdonsagot allitok
-muLabel.innerText = "Mű" //szoveget allitok
-muDiv.appendChild(muLabel) //mudivhez adom
-muDiv.appendChild(document.createElement("br")) //sort torok
-
-/**
- * @type {HTMLInputElement} mu input
- */
-const muInput = document.createElement("input") //input mezot hozok letre
-muInput.id = "masodik" //idt allitok
-muInput.name = "mu" //nevet beallitom
-muDiv.appendChild(muInput) //hozzaadom a mudivgez
-
-/**
- * @type {HTMLDivElement} letrehozott div a mu input error uzenetenek
- */
-const muError = document.createElement("div") // letrehozom az error divet
-muError.classList.add("error") // hozzaadom az error osztalyt
-muDiv.appendChild(muError) // hozzacsatolom az error divet a mu divhez
-muDiv.appendChild(document.createElement("br")) //sort torok
-
-/**
- * @type {HTMLDivElement} fogalom1 divje
- */
-const fogalomFirstDiv = document.createElement("div") //fogalom1 divet letrehozom
-jsForm.appendChild(fogalomFirstDiv) //A jsurlaphoz hozzaadom
-
-/**
- * @type {HTMLLabelElement} fogalom1 labelje
- */
-const fogalomFirstLabel = document.createElement("label") //labelt letrehozok
-fogalomFirstLabel.htmlFor = "harmadik" //for tulajdonsagot allitok
-fogalomFirstLabel.innerText = "Fogalom1" //szoveget allitok
-fogalomFirstDiv.appendChild(fogalomFirstLabel) //hozzaadom a fogalom1divhez
-fogalomFirstDiv.appendChild(document.createElement("br")) //sort torok
-
-/**
- * @type {HTMLInputElement} fogalom1 input
- */
-const fogalomFirstInput = document.createElement("input") //inputot keszitek
-fogalomFirstInput.id = "harmadik" //idt allitok
-fogalomFirstInput.name = "fogalom1" //nevet allitok
-fogalomFirstDiv.appendChild(fogalomFirstInput) //hozzadom a fogalom1divhez
-
-
-/**
- * @type {HTMLDivElement} letrehozott div a fogalom1 input error uzenetenek
- */
-const fogalomFirstError = document.createElement("div") // letrehozom az error divet
-fogalomFirstError.classList.add("error") // hozzaadom az error osztalyt
-fogalomFirstDiv.appendChild(fogalomFirstError) // hozzacsatolom az error divet a fogalom1 divhez
-fogalomFirstDiv.appendChild(document.createElement("br")) //sort torok
-
-/**
- * @type {HTMLDivElement} fogalom2 divje
- */
-const fogalomSecondDiv = document.createElement("div") //fogalom2 divet letrehozom
-jsForm.appendChild(fogalomSecondDiv) //A jsurlaphoz hozzaadom
-
-/**
- * @type {HTMLLabelElement} fogalom2 labelje
- */
-const fogalomSecondLabel = document.createElement("label") //labelt letrehozok
-fogalomSecondLabel.htmlFor = "negyedik" //for tulajdonsagot allitok
-fogalomSecondLabel.innerText = "Fogalom2" //szoveget allitok
-fogalomSecondDiv.appendChild(fogalomSecondLabel) //hozzaadom a fogalom2divhez
-fogalomSecondDiv.appendChild(document.createElement("br")) //sort torok
-
-/**
- * @type {HTMLInputElement} fogalom2 input
- */
-const fogalomSecondInput = document.createElement("input") //inputot keszitek
-fogalomSecondInput.id = "negyedik" //idt allitok
-fogalomSecondInput.name = "fogalom2" //nevet allitok
-fogalomSecondDiv.appendChild(fogalomSecondInput) //hozzadom a fogalom2divhez
-
-/**
- * @type {HTMLDivElement} letrehozott div a fogalom2 input error uzenetenek
- */
-const fogalomSecondError = document.createElement("div") // letrehozom az error divet
-fogalomSecondError.classList.add("error") // hozzaadom az error osztalyt
-fogalomSecondDiv.appendChild(fogalomSecondError) // hozzacsatolom az error divet a fogalom2 divhez
+createForm("Szerző", "elso", "szerzo", jsForm) //meghivom a fuggvenyt, elkeszul a label, inputot tartalmazo div
+createForm("Mű"," masodik", "mu", jsForm) //meghivom a fuggvenyt, elkeszul a label, inputot tartalmazo div
+createForm("Fogalom1"," harmadik", "fogalom1", jsForm) //meghivom a fuggvenyt, elkeszul a label, inputot tartalmazo div
+createForm("Fogalom2", "negyedik", "fogalom2",  jsForm) //meghivom a fuggvenyt, elkeszul a label, inputot tartalmazo div
 
 /**
  * @type {HTMLButtonElement} gomb az urlap elkuldesehez
@@ -247,3 +128,7 @@ fogalomSecondDiv.appendChild(fogalomSecondError) // hozzacsatolom az error divet
 const formGomb = document.createElement("button") //gombot hozok letre
 formGomb.innerText = "Hozzáadás" //Szoveget allitok a gombnak
 jsForm.appendChild(formGomb) //formhoz hozzaadom
+
+
+
+
