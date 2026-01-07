@@ -146,44 +146,94 @@ jsForm.addEventListener('submit', function(e){ //keszitek egy esemenykezelot a f
     const inputFogalomMasodik = target.querySelector('#negyedik') //elkerem a negyedik idju inputot a formon belul
 
     /**
-     * @type {string} a szerzo inputba beirt erteke
+     * @type {boolean} kapcsolo ami addig igaz ha mind a 3 kotelezo input ki van toltve
      */
-    const szerzoValue = inputSzerzo.value // eltarolom a szerzo input erteket
+    let valid = true //valid valtozot letrehozok
 
-    /**
-     * @type {string} a mu inputba beirt erteke
-     */
-    const muValue = inputMu.value //eltarolom a mu input erteket
+    if(inputSzerzo.value == ""){ //megnezem, hogy ures e a szerzo inputja
 
-    /**
-     * @type {string} az elso fogalom inputba beirt erteke
-     */
-    const fogalomElsoValue = inputFogalomElso.value //eltarolom az elso fogalom erteket
+        /**
+         * @type {HTMLDivElement} div amiben az input benne van
+         */
+        const inputParent = inputSzerzo.parentElement //elekrem azt amiben benne van az input
+        /**
+         * @type {HTMLDivElement} error div
+         */
+        const errorDiv = inputParent.querySelector(".error") //lekerem a diven beluli elso errort
+        errorDiv.innerText = "Szerző kitöltése kötelező" //A hibauzenet
+        valid = false //hhamisra allitom
+    }
 
-    /**
-     * @type {string} a masodik fogalom inputba beirt erteke
-     */
-    const fogalomMasodikValue = inputFogalomMasodik.value //eltarolom a masodik fogalom erteket
+    if(inputMu.value == ""){ //megnezem, hogy ures e a mu inputja
 
-    /**
-     * @type {Literature} az uj objektum
-     */
-    const newObj = {} //letrehozok egy ures objektumot
+        /**
+         * @type {HTMLDivElement} div amiben az input benne van
+         */
+        const inputParent = inputMu.parentElement //elekrem azt amiben benne van az input
+        /**
+         * @type {HTMLDivElement} error div
+         */
+        const errorDiv = inputParent.querySelector(".error") //lekerem a diven beluli elso errort
+        errorDiv.innerText = "Mű kitöltése kötelező" //A hibauzenet
+        valid = false //hamisra allitom
+    }
 
-    newObj.writer = szerzoValue //beallitom a szerzo tulajdonsagot
-    newObj.work = muValue //beallitom a mu tulajdonsagot
-    newObj.concept1 = fogalomElsoValue //beallitom az elso fogalom tulajdonsagot
-    newObj.concept2 = fogalomMasodikValue //beallitom a masodik fogalom tulajdonsagot
+    if(inputFogalomElso.value == ""){ //megnezem, hogy ures e a szerzo inputja
 
-    console.log(newObj) //ellenorzes celjabol kiirod a konzolra
-    dataArr.push(newObj) //hozzaadom az uj objektumot
+        /**
+         * @type {HTMLDivElement} div amiben az input benne van
+         */
+        const inputParent = inputFogalomElso.parentElement //elekrem azt amiben benne van az input
+        /**
+         * @type {HTMLDivElement} error div
+         */
+        const errorDiv = inputParent.querySelector(".error") //lekerem a diven beluli elso errort
+        errorDiv.innerText = "Fogalom1 kitöltése kötelező" //A hibauzenet
+        valid = false //hamisra allitom
+    }
 
-    /**
-     * @type {HTMLTableSectionElement} a js tablazat bodyja
-     */
-    const jsTbody = document.getElementById("jstbody") //elkerem a jstbodyt es valtozoban tarolom
-    renderTable(dataArr, jsTbody) //ujrahivom a renderelo fuggvenyt mar a friss tablazattal
-    target.reset() //visszaallitom a formot alapertelmezett allapotba
+    if(valid){ //vizsgalom, hogy a valid igaz e
+            /**
+         * @type {string} a szerzo inputba beirt erteke
+         */
+        const szerzoValue = inputSzerzo.value // eltarolom a szerzo input erteket
+
+        /**
+         * @type {string} a mu inputba beirt erteke
+         */
+        const muValue = inputMu.value //eltarolom a mu input erteket
+
+        /**
+         * @type {string} az elso fogalom inputba beirt erteke
+         */
+        const fogalomElsoValue = inputFogalomElso.value //eltarolom az elso fogalom erteket
+
+        /**
+         * @type {string} a masodik fogalom inputba beirt erteke
+         */
+        const fogalomMasodikValue = inputFogalomMasodik.value //eltarolom a masodik fogalom erteket
+
+        /**
+         * @type {Literature} az uj objektum
+         */
+        const newObj = {} //letrehozok egy ures objektumot
+
+        newObj.writer = szerzoValue //beallitom a szerzo tulajdonsagot
+        newObj.work = muValue //beallitom a mu tulajdonsagot
+        newObj.concept1 = fogalomElsoValue //beallitom az elso fogalom tulajdonsagot
+        newObj.concept2 = fogalomMasodikValue //beallitom a masodik fogalom tulajdonsagot
+
+        console.log(newObj) //ellenorzes celjabol kiirod a konzolra
+        dataArr.push(newObj) //hozzaadom az uj objektumot
+
+        /**
+         * @type {HTMLTableSectionElement} a js tablazat bodyja
+         */
+        const jsTbody = document.getElementById("jstbody") //elkerem a jstbodyt es valtozoban tarolom
+        renderTable(dataArr, jsTbody) //ujrahivom a renderelo fuggvenyt mar a friss tablazattal
+        target.reset() //visszaallitom a formot alapertelmezett allapotba
+    }
+    
 })
 
 /**
@@ -224,6 +274,12 @@ htmlForm.addEventListener("submit", function(e){ //keszitek egy esemenykezelot a
      * @type {HTMLInputElement} a masodik fogalom input mezo
      */
     const inputFogalomMasodik = target.querySelector('#otodik') //elkerem a otodik idju inputot a formon belul
+
+    
+
+
+
+
 
     /**
      * @type {string} a szerzo inputba beirt erteke
