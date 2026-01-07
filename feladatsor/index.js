@@ -217,12 +217,12 @@ htmlForm.addEventListener("submit", function(e){ //keszitek egy esemenykezelot a
     /**
      * @type {HTMLInputElement} a mu input mezo
      */
-    const inputMuMasodik = target.querySelector('#harmadik') //elkerem a harmadik idju inputot a formon belul
+    const inputMuMasodik = target.querySelector('#negyedik') //elkerem a harmadik idju inputot a formon belul
 
     /**
      * @type {HTMLInputElement} az elso fogalom input mezo
      */
-    const inputFogalomElso = target.querySelector('#negyedik') //elkerem a negyedik idju inputot a formon belul
+    const inputFogalomElso = target.querySelector('#harmadik') //elkerem a negyedik idju inputot a formon belul
 
     /**
      * @type {HTMLInputElement} a masodik fogalom input mezo
@@ -270,7 +270,7 @@ htmlForm.addEventListener("submit", function(e){ //keszitek egy esemenykezelot a
         /**
          * @type {HTMLTableSectionElement} a js tablazat bodyja
          */
-        const htmlTbody = document.getElementById("tablebody") //elkerem a jstbodyt es valtozoban tarolom
+        const htmlTbody = document.getElementById("htmltbody") //elkerem a jstbodyt es valtozoban tarolom
 
         addRow(newObj, htmlTbody) //ujrahivom a renderelo fuggvenyt mar a friss tablazattal
         target.reset() //visszaallitom a formot alapertelmezett allapotba

@@ -104,10 +104,8 @@ function addRow(newRow, tableBody){ //fugvenyt definialok 2 parameterreé
     const cell1 = createCell(newRow.writer, row) //cellat hozok letre writer tulajdonsaggal majd hozzaadom a sorhoz
     createCell(newRow.work, row) //cellat hozok letre work tulajdonsaggal majd hozzaadom a sorhoz
 
-    /**
-     * @type {HTMLTableCellElement} a tablazat tesztsoranak harmadik cellaja
-     */
-    const cell3 = createCell(newRow.concept1, row) //cellat hozok letre concept1 tulajdonsaggal majd hozzaadom a sorhoz, illetve valtozoban eltarolom
+    
+    createCell(newRow.concept1, row) //cellat hozok letre concept1 tulajdonsaggal majd hozzaadom a sorhoz, illetve valtozoban eltarolom
 
     if(newRow.work2 || newRow.concept2){ //vizsgalom hogy definialva van e a concept2
 
@@ -129,12 +127,11 @@ function addRow(newRow, tableBody){ //fugvenyt definialok 2 parameterreé
             /**
              * @type {HTMLTableCellElement} //a tablazat tesztsoranak negyedik cellaja
              */
-        createCell(newRow.concept2, row) //cellat hozok letre concept2 tulajdonsaggal majd hozzaadom a sorhoz
+            createCell(newRow.concept2, row) //cellat hozok letre concept2 tulajdonsaggal majd hozzaadom a sorhoz
         }
     }
-    else{ //egyebkent
-        cell3.colSpan = 2 //cell3 colSpan erteket 2 re allitomn
-    }
+    
+
 
 }
 
