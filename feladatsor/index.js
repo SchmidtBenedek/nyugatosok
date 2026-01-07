@@ -158,45 +158,18 @@ jsForm.addEventListener('submit', function(e){ //keszitek egy esemenykezelot a f
         errorDiv.innerText = "" //torlom az aktualis elem szoveget
     }
 
-    if(inputSzerzo.value == ""){ //megnezem, hogy ures e a szerzo inputja
+    if(!validateField(inputSzerzo, "Szerző kitöltése kötelező")){ //negalom a fuggveny visszateresi erteket, ami ha igaz akkor hamissa teszem es nemtortenik semmi de ha hamis akkor igazza teszem es validot hamisra ateszem
 
-        /**
-         * @type {HTMLDivElement} div amiben az input benne van
-         */
-        const inputParent = inputSzerzo.parentElement //elekrem azt amiben benne van az input
-        /**
-         * @type {HTMLDivElement} error div
-         */
-        const errorDiv = inputParent.querySelector(".error") //lekerem a diven beluli elso errort
-        errorDiv.innerText = "Szerző kitöltése kötelező" //A hibauzenet
         valid = false //hhamisra allitom
     }
 
-    if(inputMu.value == ""){ //megnezem, hogy ures e a mu inputja
+    if(!validateField(inputMu, "Mű kitöltése kötelező")){ //negalom a fuggveny visszateresi erteket, ami ha igaz akkor hamissa teszem es nemtortenik semmi de ha hamis akkor igazza teszem es validot hamisra ateszem
 
-        /**
-         * @type {HTMLDivElement} div amiben az input benne van
-         */
-        const inputParent = inputMu.parentElement //elekrem azt amiben benne van az input
-        /**
-         * @type {HTMLDivElement} error div
-         */
-        const errorDiv = inputParent.querySelector(".error") //lekerem a diven beluli elso errort
-        errorDiv.innerText = "Mű kitöltése kötelező" //A hibauzenet
         valid = false //hamisra allitom
     }
 
-    if(inputFogalomElso.value == ""){ //megnezem, hogy ures e a szerzo inputja
+    if(!validateField(inputFogalomElso, "Fogalom1 kitöltése kötelező")){ ////negalom a fuggveny visszateresi erteket, ami ha igaz akkor hamissa teszem es nemtortenik semmi de ha hamis akkor igazza teszem es validot hamisra ateszem
 
-        /**
-         * @type {HTMLDivElement} div amiben az input benne van
-         */
-        const inputParent = inputFogalomElso.parentElement //elekrem azt amiben benne van az input
-        /**
-         * @type {HTMLDivElement} error div
-         */
-        const errorDiv = inputParent.querySelector(".error") //lekerem a diven beluli elso errort
-        errorDiv.innerText = "Fogalom1 kitöltése kötelező" //A hibauzenet
         valid = false //hamisra allitom
     }
 
@@ -231,7 +204,6 @@ jsForm.addEventListener('submit', function(e){ //keszitek egy esemenykezelot a f
         newObj.concept1 = fogalomElsoValue //beallitom az elso fogalom tulajdonsagot
         newObj.concept2 = fogalomMasodikValue //beallitom a masodik fogalom tulajdonsagot
 
-        console.log(newObj) //ellenorzes celjabol kiirod a konzolra
         dataArr.push(newObj) //hozzaadom az uj objektumot
 
         /**
@@ -296,45 +268,18 @@ htmlForm.addEventListener("submit", function(e){ //keszitek egy esemenykezelot a
         errorDiv.innerText = "" //torlom az aktualis elem szoveget
     }
 
-    if(inputSzerzo.value == ""){ //megnezem, hogy ures e a szerzo inputja
+    if(!validateField(inputSzerzo, "Szerző kitöltése kötelező")){ //negalom a fuggveny visszateresi erteket, ami ha igaz akkor hamissa teszem es nemtortenik semmi de ha hamis akkor igazza teszem es validot hamisra ateszem
 
-        /**
-         * @type {HTMLDivElement} div amiben az input benne van
-         */
-        const inputParent = inputSzerzo.parentElement //elekrem azt amiben benne van az input
-        /**
-         * @type {HTMLDivElement} error div
-         */
-        const errorDiv = inputParent.querySelector(".error") //lekerem a diven beluli elso errort
-        errorDiv.innerText = "Szerző kitöltése kötelező" //A hibauzenet
         valid = false //hhamisra allitom
     }
 
-    if(inputMuElso.value == ""){ //megnezem, hogy ures e a mu inputja
+    if(!validateField(inputMuElso, "Mű kitöltése kötelező")){ //negalom a fuggveny visszateresi erteket, ami ha igaz akkor hamissa teszem es nemtortenik semmi de ha hamis akkor igazza teszem es validot hamisra ateszem
 
-        /**
-         * @type {HTMLDivElement} div amiben az input benne van
-         */
-        const inputParent = inputMuElso.parentElement //elekrem azt amiben benne van az input
-        /**
-         * @type {HTMLDivElement} error div
-         */
-        const errorDiv = inputParent.querySelector(".error") //lekerem a diven beluli elso errort
-        errorDiv.innerText = "Mű kitöltése kötelező" //A hibauzenet
         valid = false //hamisra allitom
     }
 
-    if(inputFogalomElso.value == ""){ //megnezem, hogy ures e a szerzo inputja
+    if(!validateField(inputFogalomElso, "Fogalom1 kitöltése kötelező")){ ////negalom a fuggveny visszateresi erteket, ami ha igaz akkor hamissa teszem es nemtortenik semmi de ha hamis akkor igazza teszem es validot hamisra ateszem
 
-        /**
-         * @type {HTMLDivElement} div amiben az input benne van
-         */
-        const inputParent = inputFogalomElso.parentElement //elekrem azt amiben benne van az input
-        /**
-         * @type {HTMLDivElement} error div
-         */
-        const errorDiv = inputParent.querySelector(".error") //lekerem a diven beluli elso errort
-        errorDiv.innerText = "Fogalom1 kitöltése kötelező" //A hibauzenet
         valid = false //hamisra allitom
     }
 
@@ -388,5 +333,4 @@ htmlForm.addEventListener("submit", function(e){ //keszitek egy esemenykezelot a
     }
     
 })
-
 

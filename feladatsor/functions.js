@@ -259,3 +259,33 @@ function generateForm(section){ //definialok 1 fuggvenyt 1 parameterrel
 
     return jsForm //visszaterek az elkeszult jsFormmal
 }
+
+/**
+ * Checkeli, hogy nem ures e az input, ha ures hibauzenetet allit es hamissa teszi a validot
+ * 
+ * @param {HTMLInputElement} input amit validalni kell 
+ * @param {string} error uzi ha nem jo a valid
+ * @returns {boolean}
+ */
+function validateField(input, error){ //fuggvenyt keszitek 2 parameterrel
+
+    /**
+     * @type {boolean} az aktualis valid erteke
+     */
+    let valid = true //igazra allitom a valid erteket
+
+    if(input.value == ""){ //vizsgalom, hogy ures e az input
+        /**
+         * @type {HTMLDivElement} az pelda inputnak a parentdivje
+         */
+        const inputParent = input.parentElement //elkerem az elemet amiben benne van az input
+
+        /**
+         * @type {HTMLDivElement} erroros div
+         */
+        const errorDiv = inputParent.querySelector(".error") //elso error a diven belul
+        errorDiv.innerText = error //szoveget allitok
+        valid = false //a valid valtozot hamissa teszem
+    }
+    return valid //validdal visszaterek ami boolean ertek lesz
+}
