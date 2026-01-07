@@ -186,5 +186,88 @@ jsForm.addEventListener('submit', function(e){ //keszitek egy esemenykezelot a f
     target.reset() //visszaallitom a formot alapertelmezett allapotba
 })
 
+/**
+ * @type {HTMLFormElement} a html form
+ */
+const htmlForm = document.getElementById("htmlform") //elkerem a htmlformot
+
+htmlForm.addEventListener("submit", function(e){ //keszitek egy esemenykezelot a form submit esemenyere
+
+    e.preventDefault() //megakadalyozom az alapertelmezett mukodest az urlap submit esemenye soran
+
+    /**
+     * @type {HTMLFormElement} a submit esemeny targetje
+     */
+    const target = e.target //eltarolom az esemeny targetjet egy valtozoba
+
+    /**
+     * @type {HTMLInputElement} a szerzo input mezo
+     */
+    const inputSzerzo = target.querySelector('#elso') //elkerem az elso idju inputot a formon belul
+
+    /**
+     * @type {HTMLInputElement} a mu input mezo
+     */
+    const inputMuElso = target.querySelector('#masodik') //elkerem a masodik idju inputot a formon belul
+
+    /**
+     * @type {HTMLInputElement} a mu input mezo
+     */
+    const inputMuMasodik = target.querySelector('#harmadik') //elkerem a harmadik idju inputot a formon belul
+
+    /**
+     * @type {HTMLInputElement} az elso fogalom input mezo
+     */
+    const inputFogalomElso = target.querySelector('#negyedik') //elkerem a negyedik idju inputot a formon belul
+
+    /**
+     * @type {HTMLInputElement} a masodik fogalom input mezo
+     */
+    const inputFogalomMasodik = target.querySelector('#otodik') //elkerem a otodik idju inputot a formon belul
+
+    /**
+     * @type {string} a szerzo inputba beirt erteke
+     */
+    const szerzoValue = inputSzerzo.value // eltarolom a szerzo input erteket
+
+    /**
+     * @type {string} a muelso inputba beirt erteke
+     */
+    const muElsoValue = inputMuElso.value //eltarolom a mu input erteket
+
+    /**
+     * @type {string} a masodik inputba beirt erteke
+     */
+    const muMasodikValue = inputMuMasodik.value //eltarolom a mu2 input erteket
+
+    /**
+     * @type {string} az elso fogalom inputba beirt erteke
+     */
+    const fogalomElsoValue = inputFogalomElso.value //eltarolom az elso fogalom erteket
+
+    /**
+     * @type {string} a masodik fogalom inputba beirt erteke
+     */
+    const fogalomMasodikValue = inputFogalomMasodik.value //eltarolom a masodik fogalom erteket
+
+    /**
+     * @type {Literature} az uj objektum
+     */
+    const newObj = {} //letrehozok egy ures objektumot
+
+    newObj.writer = szerzoValue //beallitom a szerzo tulajdonsagot
+    newObj.work = muElsoValue //beallitom a mu tulajdonsagot
+    newObj.work2 = muMasodikValue //beallitom a mu2 tulajdonsagot
+    newObj.concept1 = fogalomElsoValue //beallitom az elso fogalom tulajdonsagot
+    newObj.concept2 = fogalomMasodikValue //beallitom a masodik fogalom tulajdonsagot
+
+    /**
+     * @type {HTMLTableSectionElement} a js tablazat bodyja
+     */
+    const htmlTbody = document.getElementById("tablebody") //elkerem a jstbodyt es valtozoban tarolom
+
+    addRow(newObj, htmlTbody) //ujrahivom a renderelo fuggvenyt mar a friss tablazattal
+    target.reset() //visszaallitom a formot alapertelmezett allapotba
+})
 
 
