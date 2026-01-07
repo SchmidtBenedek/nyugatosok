@@ -145,35 +145,9 @@ jsForm.addEventListener('submit', function(e){ //keszitek egy esemenykezelot a f
      */
     const inputFogalomMasodik = target.querySelector('#negyedik') //elkerem a negyedik idju inputot a formon belul
 
-    /**
-     * @type {boolean} kapcsolo ami addig igaz ha mind a 3 kotelezo input ki van toltve
-     */
-    let valid = true //valid valtozot letrehozok
 
-    /**
-     * @type {NodeList} az error osztalyokkal rendelkezo elemek listajha
-     */
-    const errorDivList = target.querySelectorAll(".error") //minden elemet elkerek ami ilyen css osztallyal rendelkezik
-    for(const errorDiv of errorDivList){ //vegigmenyek az osszes elemen
-        errorDiv.innerText = "" //torlom az aktualis elem szoveget
-    }
 
-    if(!validateField(inputSzerzo, "Szerző kitöltése kötelező")){ //negalom a fuggveny visszateresi erteket, ami ha igaz akkor hamissa teszem es nemtortenik semmi de ha hamis akkor igazza teszem es validot hamisra ateszem
-
-        valid = false //hhamisra allitom
-    }
-
-    if(!validateField(inputMu, "Mű kitöltése kötelező")){ //negalom a fuggveny visszateresi erteket, ami ha igaz akkor hamissa teszem es nemtortenik semmi de ha hamis akkor igazza teszem es validot hamisra ateszem
-
-        valid = false //hamisra allitom
-    }
-
-    if(!validateField(inputFogalomElso, "Fogalom1 kitöltése kötelező")){ ////negalom a fuggveny visszateresi erteket, ami ha igaz akkor hamissa teszem es nemtortenik semmi de ha hamis akkor igazza teszem es validot hamisra ateszem
-
-        valid = false //hamisra allitom
-    }
-
-    if(valid){ //vizsgalom, hogy a valid igaz e
+    if(validateAllField(inputSzerzo, inputMu, inputFogalomElso, target)){ //vizsgalom, hogy a valid igaz e
             /**
          * @type {string} a szerzo inputba beirt erteke
          */
@@ -255,38 +229,8 @@ htmlForm.addEventListener("submit", function(e){ //keszitek egy esemenykezelot a
      */
     const inputFogalomMasodik = target.querySelector('#otodik') //elkerem a otodik idju inputot a formon belul
 
-    /**
-     * @type {boolean} kapcsolo ami addig igaz ha mind a 3 kotelezo input ki van toltve
-     */
-    let valid = true //valid valtozot letrehozok
-
-    /**
-     * @type {NodeList} az error osztalyokkal rendelkezo elemek listajha
-     */
-    const errorDivList = target.querySelectorAll(".error") //minden elemet elkerek ami ilyen css osztallyal rendelkezik
-    for(const errorDiv of errorDivList){ //vegigmenyek az osszes elemen
-        errorDiv.innerText = "" //torlom az aktualis elem szoveget
-    }
-
-    if(!validateField(inputSzerzo, "Szerző kitöltése kötelező")){ //negalom a fuggveny visszateresi erteket, ami ha igaz akkor hamissa teszem es nemtortenik semmi de ha hamis akkor igazza teszem es validot hamisra ateszem
-
-        valid = false //hhamisra allitom
-    }
-
-    if(!validateField(inputMuElso, "Mű kitöltése kötelező")){ //negalom a fuggveny visszateresi erteket, ami ha igaz akkor hamissa teszem es nemtortenik semmi de ha hamis akkor igazza teszem es validot hamisra ateszem
-
-        valid = false //hamisra allitom
-    }
-
-    if(!validateField(inputFogalomElso, "Fogalom1 kitöltése kötelező")){ ////negalom a fuggveny visszateresi erteket, ami ha igaz akkor hamissa teszem es nemtortenik semmi de ha hamis akkor igazza teszem es validot hamisra ateszem
-
-        valid = false //hamisra allitom
-    }
-
-
-
-
-    if(valid){ //megnezem, hogy igaz e
+    
+    if(validateAllField(inputSzerzo, inputMuElso, inputFogalomElso, target)){ //megnezem, hogy igaz e
             /**
          * @type {string} a szerzo inputba beirt erteke
          */
@@ -334,3 +278,45 @@ htmlForm.addEventListener("submit", function(e){ //keszitek egy esemenykezelot a
     
 })
 
+/**
+ * Validalja a bemeneti elemeket, es kiszedi a hibauzeneteket, ha pedig sikertelen a valid ujat rak
+ * 
+ * @param {HTMLInputElement} inputSzerzo szerzo inputja
+ * @param {HTMLInputElement} inputMuElso muelso inputja
+ * @param {HTMLInputElement} inputFogalomElso fogalomelso inputja
+ * @param {HTMLFormElement} form a form
+ * @returns {boolean}
+ */
+function validateAllField(inputSzerzo, inputMuElso, inputFogalomElso, form){ //fuggvenyt hozok letre 4 parameterrel
+    
+    /**
+     * @type {boolean} kapcsolo ami addig igaz ha mind a 3 kotelezo input ki van toltve
+     */
+    let valid = true //valid valtozot letrehozok
+
+    
+    /**
+     * @type {NodeList} az error osztalyokkal rendelkezo elemek listajha
+     */
+    const errorDivList = form.querySelectorAll(".error") //minden elemet elkerek ami ilyen css osztallyal rendelkezik
+    for(const errorDiv of errorDivList){ //vegigmenyek az osszes elemen
+        errorDiv.innerText = "" //torlom az aktualis elem szoveget
+    }
+
+    if(!validateField(inputSzerzo, "Szerző kitöltése kötelező")){ //negalom a fuggveny visszateresi erteket, ami ha igaz akkor hamissa teszem es nemtortenik semmi de ha hamis akkor igazza teszem es validot hamisra ateszem
+
+        valid = false //hhamisra allitom
+    }
+
+    if(!validateField(inputMuElso, "Mű kitöltése kötelező")){ //negalom a fuggveny visszateresi erteket, ami ha igaz akkor hamissa teszem es nemtortenik semmi de ha hamis akkor igazza teszem es validot hamisra ateszem
+
+        valid = false //hamisra allitom
+    }
+
+    if(!validateField(inputFogalomElso, "Fogalom1 kitöltése kötelező")){ ////negalom a fuggveny visszateresi erteket, ami ha igaz akkor hamissa teszem es nemtortenik semmi de ha hamis akkor igazza teszem es validot hamisra ateszem
+
+        valid = false //hamisra allitom
+    }
+
+    return valid //visszaterek a valid bool ertekevel
+}

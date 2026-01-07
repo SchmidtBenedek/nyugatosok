@@ -109,7 +109,7 @@ function addRow(newRow, tableBody){ //fugvenyt definialok 2 parameterreé
      */
     const cell3 = createCell(newRow.concept1, row) //cellat hozok letre concept1 tulajdonsaggal majd hozzaadom a sorhoz, illetve valtozoban eltarolom
 
-    if(newRow.concept2){ //vizsgalom hogy definialva van e a concept2
+    if(newRow.work2 || newRow.concept2){ //vizsgalom hogy definialva van e a concept2
 
         if(newRow.work2){ //aztan vizsgalom hogy esetleg van e definialva work2
             cell1.rowSpan = 2 //ha netan van akkor cell1 rowSpan erteket 2 re allitom
@@ -122,6 +122,7 @@ function addRow(newRow, tableBody){ //fugvenyt definialok 2 parameterreé
 
             createCell(newRow.work2, row2) //cellat hozok letre work2 tulajdonsaggal majd hozzaadom a sorhoz
             createCell(newRow.concept2, row2) //cellat hozok letre concept2 tulajdonsaggal majd hozzaadom a sorhoz
+            //kellene meg ide 1 colspan a fejlecnek
         }
 
         else{ //maskulonben
@@ -289,3 +290,4 @@ function validateField(input, error){ //fuggvenyt keszitek 2 parameterrel
     }
     return valid //validdal visszaterek ami boolean ertek lesz
 }
+
