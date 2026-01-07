@@ -150,6 +150,14 @@ jsForm.addEventListener('submit', function(e){ //keszitek egy esemenykezelot a f
      */
     let valid = true //valid valtozot letrehozok
 
+    /**
+     * @type {NodeList} az error osztalyokkal rendelkezo elemek listajha
+     */
+    const errorDivList = target.querySelectorAll(".error") //minden elemet elkerek ami ilyen css osztallyal rendelkezik
+    for(const errorDiv of errorDivList){ //vegigmenyek az osszes elemen
+        errorDiv.innerText = "" //torlom az aktualis elem szoveget
+    }
+
     if(inputSzerzo.value == ""){ //megnezem, hogy ures e a szerzo inputja
 
         /**
@@ -279,6 +287,14 @@ htmlForm.addEventListener("submit", function(e){ //keszitek egy esemenykezelot a
      * @type {boolean} kapcsolo ami addig igaz ha mind a 3 kotelezo input ki van toltve
      */
     let valid = true //valid valtozot letrehozok
+
+    /**
+     * @type {NodeList} az error osztalyokkal rendelkezo elemek listajha
+     */
+    const errorDivList = target.querySelectorAll(".error") //minden elemet elkerek ami ilyen css osztallyal rendelkezik
+    for(const errorDiv of errorDivList){ //vegigmenyek az osszes elemen
+        errorDiv.innerText = "" //torlom az aktualis elem szoveget
+    }
 
     if(inputSzerzo.value == ""){ //megnezem, hogy ures e a szerzo inputja
 
